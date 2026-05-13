@@ -1,0 +1,54 @@
+[
+    {
+        "vin": "4T1B11HK5MU123456",
+        "plate": "G37ABC",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "Toyota",
+            "modelo": "Camry SE",
+            "anio": 2021
+        },
+        "especificaciones": {
+            "VIN": "4T1B11HK5MU123456",
+            "Marca": "Toyota",
+            "Modelo": "Camry SE",
+            "Color": "Metalizado Gris",
+            "año": "2021"
+        },
+        "historial": [
+            "Sin accidentes reportados",
+            "Título limpio (No Salvage)",
+            "Un solo dueño previo",
+            "Sin reportes de robo",
+            "Uso personal (No Taxi/Renta)"
+        ]
+    },
+    {
+        "vin": "1HGCP2F8XBA000789",
+        "plate": "JM1BPB",
+        "state": "TX",
+        "vehiculo": {
+            "marca": "Honda",
+            "modelo": "Civic EX",
+            "anio": 2018
+        },
+        "seguro": {
+        "numero": "AIG-554433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "1HGCP2F8XBA000789",
+            "Marca": "Honda",
+            "Modelo": "Civic EX",
+            "Color": "Azul Cristal",
+            "Año": "2018"
+        },
+        "historial": [
+            "Alejandro Brito",
+            "Dirección: 123 Main St, Anytown, USA",
+            "correo: alejandro.brito@example.com",
+            "fecha de vencimiento: 30 de junio de 2023",
+            "Fecha de compra: 15 de marzo de 2020"
+        ]
+    }
+]
