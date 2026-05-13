@@ -8,6 +8,10 @@
             "modelo": "Camry SE",
             "anio": 2021
         },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
         "especificaciones": {
             "VIN": "4T1B11HK5MU123456",
             "Marca": "Toyota",
@@ -16,11 +20,11 @@
             "año": "2021"
         },
         "historial": [
-            "Sin accidentes reportados",
-            "Título limpio (No Salvage)",
-            "Un solo dueño previo",
-            "Sin reportes de robo",
-            "Uso personal (No Taxi/Renta)"
+            "Alejandro Brito",
+            "Dirección: 123 Main St, Anytown, USA",
+            "correo: alejandro.brito@example.com",
+            "fecha de vencimiento: 30 de junio de 2023",
+            "Fecha de compra: 15 de marzo de 2020"
         ]
     },
     {
