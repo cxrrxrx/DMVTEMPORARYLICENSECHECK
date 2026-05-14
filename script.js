@@ -1,13 +1,14 @@
 /**
  * ARCHIVO: script.js
- * Descripción: Maneja la lógica de búsqueda de VIN y Matrículas, simulador de carga, 
- * renderización de reportes y comunicación con WhatsApp.
+ * Descripción: Maneja la lógica de búsqueda de VIN, Matrículas y Pólizas con validación de estado,
+ * renderización de reportes profesionales y generación de PDF.
  */
 
 // 1. VARIABLES DE ESTADO Y CARGA DE DATOS
-let listaVehiculos = []; // Empezamos con el array vacío
+let listaVehiculos = []; 
 let currentVIN = "";
 let datosEncontrados = null;
+let tipoBusquedaActual = "general"; 
 const telefonoSoporte = "584226395595";
 
 // Función para cargar los datos desde el JSON externo
@@ -15,101 +16,110 @@ async function cargarBaseDeDatos() {
     try {
         const respuesta = await fetch('datos.json');
         if (!respuesta.ok) throw new Error("No se pudo cargar el archivo JSON");
-        listaVehiculos = await respuesta.ok ? await respuesta.json() : [];
+        listaVehiculos = await respuesta.json();
         console.log("Base de datos cargada correctamente");
     } catch (error) {
         console.error("Error al cargar datos:", error);
     }
 }
 
-// 2. INICIALIZACIÓN
-document.addEventListener('DOMContentLoaded', async () => {
-    await cargarBaseDeDatos(); // Carga tu datos.json primero
-
-    // Evento para el botón de búsqueda de matrícula
-    const btnSearchPlate = document.getElementById('btn-search-plate');
-    if (btnSearchPlate) {
-        btnSearchPlate.addEventListener('click', procesarBusquedaPlaca);
-    }
-
-    // También para que funcione al presionar "Enter"
-    const plateInput = document.getElementById('plate-input');
-    if (plateInput) {
-        plateInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') procesarBusquedaPlaca();
-        });
-    }
-});
-
-// El resto de tus funciones (procesarBusquedaVIN, procesarBusquedaPlaca, ejecutarFlujoReporte, etc.)
-// SE MANTIENEN EXACTAMENTE IGUAL, ya que siguen usando la variable global 'listaVehiculos'.
-
-
 // 2. INICIALIZACIÓN Y EVENTOS
-document.addEventListener('DOMContentLoaded', () => {
-    // Eventos para VIN
-    const btnSearch = document.getElementById('btn-search');
+document.addEventListener('DOMContentLoaded', async () => {
+    await cargarBaseDeDatos();
+
+    // Eventos para búsqueda por VIN
+    const btnSearchVIN = document.getElementById('btn-search');
     const vinInput = document.getElementById('vin-input');
-    if(btnSearch) btnSearch.addEventListener('click', procesarBusquedaVIN);
+    if(btnSearchVIN) btnSearchVIN.addEventListener('click', procesarBusquedaVIN);
     if(vinInput) vinInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') procesarBusquedaVIN();
     });
 
-    // --- NUEVO: Eventos para Matrícula (Plate) ---
-    const btnSearchPlate = document.getElementById('btn-search-plate');
+    // Eventos para búsqueda General (Placa o Póliza con Validación de Estado)
+    const btnSearchGeneral = document.getElementById('btn-search-plate');
     const plateInput = document.getElementById('plate-input');
     
-    if(btnSearchPlate) btnSearchPlate.addEventListener('click', procesarBusquedaPlaca);
+    if(btnSearchGeneral) btnSearchGeneral.addEventListener('click', manejarBusquedaGeneral);
     if(plateInput) plateInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') procesarBusquedaPlaca();
+        if (e.key === 'Enter') manejarBusquedaGeneral();
     });
 
     configurarWhatsApp();
+    configurarGeneradorPDF();
 });
 
-// 3. LÓGICA DE BÚSQUEDA VIN
+// 3. LÓGICA DE DETECCIÓN INTELIGENTE Y VALIDACIÓN
+function manejarBusquedaGeneral() {
+    const inputPrincipal = document.getElementById('plate-input').value.trim().toUpperCase();
+    const estadoSeleccionado = document.getElementById('state-select').value;
+
+    if (!inputPrincipal) {
+        alert("Por favor, ingrese un dato para buscar.");
+        return;
+    }
+
+    // Si tiene un guion "-" o longitud > 8, lo tratamos como PÓLIZA
+    if (inputPrincipal.includes('-') || inputPrincipal.length > 8) {
+        console.log("Detectado como PÓLIZA");
+        buscarPorPolizaDirecto(inputPrincipal, estadoSeleccionado);
+    } else {
+        console.log("Detectado como MATRÍCULA");
+        buscarPorMatriculaDirecto(inputPrincipal, estadoSeleccionado);
+    }
+}
+
+// 4. FUNCIONES DE BÚSQUEDA ESPECÍFICAS
 function procesarBusquedaVIN() {
     const vinValue = document.getElementById('vin-input').value.trim().toUpperCase();
-
     if (vinValue.length < 5) {
         alert("Por favor, ingrese un VIN válido.");
         return;
     }
 
-    currentVIN = vinValue;
+    tipoBusquedaActual = "general";
     datosEncontrados = listaVehiculos.find(v => v.vin === vinValue);
 
     if (datosEncontrados) {
+        currentVIN = vinValue;
         ejecutarFlujoReporte(vinValue);
     } else {
         mostrarErrorBusqueda(vinValue, "VIN");
     }
 }
 
-function procesarBusquedaPlaca() {
-    const plateInput = document.getElementById('plate-input');
-    const stateSelect = document.getElementById('state-select');
-
-    const plateValue = plateInput.value.trim().toUpperCase();
-    const stateValue = stateSelect.value; // El valor del estado seleccionado (ej: "TX")
-
-    // Buscamos el vehículo que coincida con la PLACA Y TAMBIÉN con el ESTADO
+function buscarPorMatriculaDirecto(valorPlaca, estado) {
+    tipoBusquedaActual = "general";
+    // Validación de Placa + Estado
     datosEncontrados = listaVehiculos.find(v => 
-        v.plate.toUpperCase() === plateValue && v.state === stateValue
+        v.plate.toUpperCase() === valorPlaca && v.state === estado
     );
 
     if (datosEncontrados) {
-        // Si coinciden AMBOS, mostramos el reporte
         currentVIN = datosEncontrados.vin;
         ejecutarFlujoReporte(datosEncontrados.vin);
     } else {
-        // Si la placa existe pero el estado es diferente (o no existe ninguno), da error
-        alert(`Error: No existe un registro para la placa ${plateValue} en el estado de ${stateValue}.`);
+        alert(`Error: No existe un registro para la placa ${valorPlaca} en el estado de ${estado}.`);
     }
 }
 
+function buscarPorPolizaDirecto(valorPoliza, estado) {
+    tipoBusquedaActual = "policy"; 
+    // Validación de Póliza + Estado (Nueva lógica solicitada)
+    datosEncontrados = listaVehiculos.find(v => 
+        v.seguro && 
+        v.seguro.numero.toUpperCase() === valorPoliza && 
+        v.state === estado
+    );
 
-// 4. ORQUESTADOR DE FLUJO VISUAL (Se mantiene igual, funciona para ambos)
+    if (datosEncontrados) {
+        currentVIN = datosEncontrados.vin;
+        ejecutarFlujoReporte(datosEncontrados.vin);
+    } else {
+        alert(`Error: La póliza ${valorPoliza} no existe o no corresponde al estado de ${estado}.`);
+    }
+}
+
+// 5. ORQUESTADOR DE FLUJO VISUAL
 async function ejecutarFlujoReporte(identificador) {
     const heroSection = document.querySelector('.hero');
     const sectionsToHide = [
@@ -124,7 +134,6 @@ async function ejecutarFlujoReporte(identificador) {
     const reportContainer = document.getElementById('report-container');
 
     toggleLoader(true);
-
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     if (heroSection) heroSection.style.display = 'none';
@@ -132,23 +141,22 @@ async function ejecutarFlujoReporte(identificador) {
         if (section) section.style.display = 'none';
     });
     
-    renderizarDatosEnPantalla(identificador);
+    renderizarDatosEnPantalla();
 
     toggleLoader(false);
     reportContainer.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 5. RENDERIZACIÓN DINÁMICA
-function renderizarDatosEnPantalla(id) {
+// 6. RENDERIZACIÓN DINÁMICA DEL REPORTE
+function renderizarDatosEnPantalla() {
     const v = datosEncontrados;
 
-    // 1. Título y VIN principal
+    // Título y VIN
     document.getElementById('car-name').innerText = `${v.vehiculo.anio} ${v.vehiculo.marca} ${v.vehiculo.modelo}`;
     document.getElementById('vin-number').innerText = v.vin;
 
-    // 2. DATOS DEL COMPRADOR (Lo que se había perdido)
-    // Asegúrate de que estos IDs existan en tu index.html
+    // Datos del Comprador
     if (v.comprador) {
         document.getElementById('buyer-name').innerText = v.comprador.nombre;
         document.getElementById('buyer-address').innerText = v.comprador.direccion;
@@ -157,7 +165,7 @@ function renderizarDatosEnPantalla(id) {
         document.getElementById('purchase-date').innerText = v.comprador.compra;
     }
 
-    // 3. HISTORIAL (Checkmarks verdes)
+    // Historial
     const listaHistorial = document.getElementById('history-list');
     listaHistorial.innerHTML = ""; 
     v.historial.forEach(item => {
@@ -166,33 +174,36 @@ function renderizarDatosEnPantalla(id) {
         listaHistorial.appendChild(li);
     });
 
+    // Especificaciones Técnicas + Póliza
     // 4. ESPECIFICACIONES TÉCNICAS + PÓLIZA DINÁMICA
     const tablaSpecs = document.getElementById('specs-table');
     tablaSpecs.innerHTML = ""; 
 
-    // Primero las especificaciones base del JSON (Marca, Modelo, Color, etc.)
+    let htmlSpecs = "";
+    let anioYaAgregado = false; // Variable de control para evitar duplicados
+
+    // Recorremos las especificaciones del JSON
     for (const [propiedad, valor] of Object.entries(v.especificaciones)) {
-        const fila = `<tr><td class="label"><strong>${propiedad}</strong></td><td>${valor}</td></tr>`;
-        tablaSpecs.innerHTML += fila;
+        htmlSpecs += `<tr><td class="label"><strong>${propiedad}</strong></td><td>${valor}</td></tr>`;
+        
+        // Si en tu JSON la propiedad se llama "año", "Año" o "anio", marcamos que ya existe
+        if (propiedad.toLowerCase().includes("añ") || propiedad.toLowerCase() === "año") {
+            anioYaAgregado = true;
+        }
+    }
+    
+    // Lógica dinámica: Mostramos Póliza O Año (solo si el año no estaba arriba)
+    if (tipoBusquedaActual === "policy" && v.seguro) {
+        htmlSpecs += `<tr><td class="label"><strong>Póliza de Seguro</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
+    } else if (!anioYaAgregado) {
+        // Solo agrega esta fila si el bucle de arriba NO encontró un campo de año
+        htmlSpecs += `<tr><td class="label"><strong>Año</strong></td><td>${v.vehiculo.anio}</td></tr>`;
     }
 
-    // Luego el Año (si no está en las especificaciones)
-    tablaSpecs.innerHTML += `<tr><td class="label"><strong>Año</strong></td><td>${v.vehiculo.anio}</td></tr>`;
-
-    // Por último, la PÓLIZA DE SEGURO (Solo si existe en el JSON)
-    if (v.seguro) {
-        const filaSeguro = `
-            <tr>
-                <td class="label"><strong>Póliza de Seguro</strong></td>
-                <td style="color: #004a99; font-weight: bold;">
-                    ${v.seguro.numero} (${v.seguro.tipo})
-                </td>
-            </tr>`;
-        tablaSpecs.innerHTML += filaSeguro;
-    }
+    tablaSpecs.innerHTML = htmlSpecs;
 }
 
-// 6. FUNCIONES AUXILIARES
+// 7. FUNCIONES AUXILIARES Y PDF
 function toggleLoader(show) {
     const loader = document.getElementById('loader-overlay');
     if (loader) loader.style.display = show ? 'flex' : 'none';
@@ -218,20 +229,19 @@ function configurarWhatsApp() {
     }
 }
 
-// Generar PDF
-const btnPdf = document.getElementById('btn-download-pdf');
-if(btnPdf) {
-    btnPdf.addEventListener('click', () => {
-        const elemento = document.getElementById('report-container');
-        const opciones = {
-            margin: 10,
-            filename: `Reporte_Vehiculo_${currentVIN}.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-        html2pdf().set(opciones).from(elemento).save();
-    });
+function configurarGeneradorPDF() {
+    const btnPdf = document.getElementById('btn-download-pdf');
+    if(btnPdf) {
+        btnPdf.addEventListener('click', () => {
+            const elemento = document.getElementById('report-container');
+            const opciones = {
+                margin: [10, 10],
+                filename: `Reporte_FaxVin_${currentVIN}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opciones).from(elemento).save();
+        });
+    }
 }
-
-

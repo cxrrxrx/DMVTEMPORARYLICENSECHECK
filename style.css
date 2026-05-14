@@ -905,3 +905,60 @@ body {
 .main-search-btn:hover {
     background-color: #002244;
 }
+
+.info-section {
+    padding: 60px 20px;
+    background-color: #ffffff; /* O el color de fondo que uses */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #334155;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.info-text {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    line-height: 1.8;
+    color: #475569;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.info-list {
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+    list-style: none;
+}
+
+.info-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.info-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #22c55e; /* El verde de tus checkmarks */
+    font-weight: bold;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    width: 100%;
+    height: 180px; /* Ajusta según tu diseño */
+    object-fit: cover; /* Esto evita que la imagen se estire */
+    display: block;
+}
