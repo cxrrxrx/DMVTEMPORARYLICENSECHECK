@@ -6,7 +6,7 @@
         "vehiculo": {
             "marca": "Toyota",
             "modelo": "Camry SE",
-            "Anio": 2021
+            "anio": 2021
         },
         "seguro": {
         "numero": "AIG-534433",
