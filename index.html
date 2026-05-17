@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DMV Plates Check</title>
+    <title>DMV SafeTag</title>
+    <link rel="icon" type="image/svg+xml" href="/Gemini_Generated_Image_hu75nxhu75nxhu75.ico">
     <!-- Font Awesome para el icono de lupa y otros -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -15,8 +16,8 @@
     <header class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>DMV Plates Check</h1>
-                <p>Verify Your Temporary License Plates!</p>
+                <h1>DMV SafeTag</h1>
+                <p>Verify Your Temporary License Plates and Policy Numbers!</p>
             </div>
 
             <!-- Caja de Búsqueda -->
@@ -99,21 +100,21 @@
     <div id="loader-overlay" style="display: none;">
         <div class="spinner-container">
             <div class="spinner"></div>
-            <p>Generando reporte...</p>
+            <p>Generating Report...</p>
         </div>
     </div>
 
     <!-- CONTENEDOR DEL REPORTE (Oculto por defecto) -->
     <main id="report-container" class="report-container" style="display: none;">
         <div class="report-header">
-            <h1 id="car-name">Nombre del Vehículo</h1>
+            <h1 id="car-name">Vehicle Name</h1>
             <div class="vin-display">VIN: <span id="vin-number"></span></div>
         </div>
 
         <div class="grid-layout">
             <!-- Columna Historial/Checklist -->
             <div class="checklist-card">
-                <h2>Datos del Comprador</h2>
+                <h2>Buyer Information</h2>
                 <ul id="history-list">
                     <!-- Se llena con JS -->
                 </ul>
@@ -121,33 +122,33 @@
 
             <!-- Columna Especificaciones -->
             <div class="specs-card">
-                <h2>Especificaciones Técnicas</h2>
+                <h2>Technical specifications</h2>
                 <table id="specs-table">
                     <!-- Se llena con JS -->
                 </table>
             </div>
         </div>
         <button class="btn-download" id="btn-download-pdf">
-            <i class="fas fa-file-pdf"></i> Descargar Reporte en PDF
+            <i class="fas fa-file-pdf"></i> Download Report as PDF
         </button>
-        <button class="btn-back" onclick="location.reload()">Nueva Consulta</button>
+        <button class="btn-back" onclick="location.reload()">New Search</button>
     </main>
 
     <section class="about-plates-section" id="about-plates">
     <div class="container">
-        <h2>¿Qué Son Las Placas Temporales?</h2>
+        <h2>What Are Temporary Plates?</h2>
         
         <div class="about-content">
             <p>
-                Las <strong>placas temporales</strong>, también conocidas como <strong>temp tags</strong> o <strong>temporary permits</strong>, son autorizaciones provisionales emitidas por el <strong>DMV</strong> (Departamento de Vehículos Motorizados) que permiten a los conductores operar un vehículo mientras se completan los trámites para obtener las placas permanentes. Las placas temporales son esenciales para situaciones como la compra de un vehículo nuevo, transferencias de propiedad o vehículos que aún no han pasado la inspección.
+                <strong>Temporary plates</strong>, also known as <strong>temp tags</strong> or <strong>temporary permits</strong>, are provisional authorizations issued by the <strong>DMV</strong> (Department of Motor Vehicles) that allow drivers to operate a vehicle while completing the paperwork to obtain permanent plates. Temporary plates are essential for situations such as purchasing a new vehicle, transfers of ownership, or vehicles that have not yet passed inspection.
             </p>
 
             <p>
-                En <strong>2026</strong>, obtener <strong>placas temporales DMV</strong> es más fácil y rápido que nunca, especialmente con los servicios disponibles <strong>ONLINE</strong>. A través de nuestra página web, puedes solicitar tus placas temporales de manera segura y eficiente, evitando largas esperas y trámites complicados. Nuestro servicio está diseñado para ofrecerte una solución rápida y confiable, asegurando que cumplas con todas las normativas legales sin inconvenientes.
+                In <strong>2026</strong>, obtaining <strong>DMV temporary plates</strong> is easier and faster than ever, especially with the services available <strong>ONLINE</strong>. Through our website, you can request your temporary plates in a secure and efficient manner, avoiding long waits and complicated procedures. Our service is designed to provide you with a quick and reliable solution, ensuring that you comply with all legal requirements without any issues.
             </p>
 
             <p>
-                Las <strong>placas temporales DMV ONLINE</strong> proporcionan una alternativa conveniente para aquellos que necesitan conducir su vehículo de inmediato. Al elegir nuestro servicio, recibirás asistencia personalizada, actualizaciones en tiempo real sobre el estado de tu solicitud y precios competitivos que se adaptan a tus necesidades.
+                <strong>DMV temporary plates ONLINE</strong> provide a convenient alternative for those who need to drive their vehicle immediately. By choosing our service, you will receive personalized assistance, real-time updates on the status of your application, and competitive pricing that adapts to your needs.
             </p>
         </div>
     </div>
@@ -155,28 +156,28 @@
 
     <section id="insurance-info" class="info-section">
     <div class="container">
-        <h2 class="section-title">¿Qué Son Las Pólizas de Seguro Vehicular?</h2>
+        <h2 class="section-title">What Are Vehicle Insurance Policies?</h2>
         
         <p class="info-text">
-            Las pólizas de seguro son contratos fundamentales que brindan protección financiera contra pérdidas causadas por accidentes, robos o daños a terceros. En 2026, contar con un seguro vigente no es solo una medida de seguridad personal, sino un requisito legal en la mayoría de los estados para poder circular con tus placas temporales o permanentes de manera legítima.
+            Vehicle insurance policies are fundamental contracts that provide financial protection against losses caused by accidents, theft, or damage to third parties. In 2026, having valid insurance is not only a personal safety measure but also a legal requirement in most states to legally operate your temporary or permanent plates.
         </p>
 
         <p class="info-text">
-            A través de nuestra plataforma, puedes verificar la validez y el tipo de cobertura de tu póliza de manera inmediata. Es vital comprender que existen diferentes niveles de protección diseñados para ajustarse a las necesidades de cada conductor y a las exigencias normativas del DMV.
+            Through our platform, you can immediately verify the validity and type of coverage of your policy. It is vital to understand that there are different levels of protection designed to meet the needs of each driver and the regulatory requirements of the DMV.
         </p>
 
         <div class="insurance-types">
             <p class="info-text">
-                Manejamos principalmente dos tipos de coberturas en nuestros registros:
+                We primarily manage two types of coverages in our records:
             </p>
             <ul class="info-list">
-                <li><strong>Liability (Responsabilidad Civil):</strong> Es la cobertura básica obligatoria. Cubre los daños materiales y lesiones que puedas causar a otras personas en un accidente.</li>
-                <li><strong>Full Coverage (Cobertura Completa):</strong> Incluye Liability más protección para tu propio vehículo contra colisiones, robo, vandalismo y desastres naturales.</li>
+                <li><strong>Liability (Responsabilidad Civil):</strong> It is the mandatory basic coverage. Covers material damage and injuries that you may cause to other people in an accident</li>
+                <li><strong>Full Coverage (Cobertura Completa):</strong> Includes Liability plus protection for your own vehicle against collisions, theft, vandalism and natural disasters.</li>
             </ul>
         </div>
 
         <p class="info-text">
-            Al utilizar nuestro servicio de VERIFICACIÓN ONLINE, aseguras que tu documentación esté siempre en regla, evitando multas costosas y garantizando la tranquilidad necesaria para ti y tu familia al estar frente al volante.
+            By utilizing our ONLINE verification service, you ensure that your documentation is always up-to-date, avoiding costly fines and guaranteeing the necessary peace of mind for you and your family while driving.
         </p>
     </div>
 </section>
@@ -188,13 +189,13 @@
             <div class="trust-icon">
                 <img src="https://cdn-icons-png.flaticon.com/512/2489/2489756.png" alt="Métodos de pago">
             </div>
-            <h3>Métodos de pago</h3>
+            <h3>Payment Methods</h3>
             <ul class="trust-list">
                 <li>Zelle</li>
                 <li>PayPal</li>
                 <li>VENMO</li>
                 <li>MAJORITY</li>
-                <li>Deposito en Tienda</li>
+                <li>Deposit in Store</li>
             </ul>
         </div>
 
@@ -202,12 +203,12 @@
             <div class="trust-icon">
                 <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" alt="Servicio rápido">
             </div>
-            <h3>Servicio rápido y seguro</h3>
+            <h3>Fast and Secure Service</h3>
             <ul class="trust-list">
-                <li>Trámites 100% seguros.</li>
-                <li>Placas válidas por 30, 60 o 90 días.</li>
-                <li>Registradas ante el DMV.</li>
-                <li>Precios reales sin costes ocultos.</li>
+                <li>100% Secure Procedures.</li>
+                <li>Valid Plates for 30, 60 or 90 days.</li>
+                <li>Registered with the DMV.</li>
+                <li>Real Prices without Hidden Fees.</li>
             </ul>
         </div>
 
@@ -217,45 +218,45 @@
     <!-- SECCIÓN DE INFORMACIÓN -->
     <section class="info-grid" id="info-section">
         <div class="info-card">
-            <h3>¿Donde Puedo sacar Placas Temporales?</h3>
-            <p>Puedes Solicitar tus placas temporales en línea mediante nuestro Whatsapp</p>
+            <h3>Where can I get Temporary License Plates?</h3>
+            <p>You can request your temporary license plates online through our WhatsApp</p>
         </div>
         <div class="info-card">
-            <h3>¿Necesitas ayuda técnica?</h3>
-            <p>Si tienes problemas para validar tu código o necesitas un reporte personalizado, nuestro equipo está listo para asistirte.</p>
-            <a href="https://wa.me/+584226395595" class="text-link" id="contact-support">Contactar soporte ahora →</a>
+            <h3>Do you need technical assistance?</h3>
+            <p>If you have issues validating your code or need a customized report, our team is ready to help you.</p>
+            <a href="https://wa.me/+13016602019" class="text-link" id="contact-support">Contact support now →</a>
         </div>
     </section>
 
     <!-- BOTÓN WHATSAPP FLOTANTE (Con animación configurada en CSS) -->
     <a href="#" class="whatsapp-float" id="whatsapp-btn" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        <span>¿Dudas? Escríbenos</span>
+        <span>Any questions? Message us</span>
     </a>
 
     <!-- SECCIÓN ESTADÍSTICAS DE SOPORTE -->
 <section class="support-stats-section" id="support-stats">
     <div class="container">
-        <h2>Pregunte en cualquier momento – Estamos listos</h2>
-        <p class="stats-subtitle">Nuestro equipo de soporte está siempre listo. Envíe un mensaje para obtener ayuda rápida.</p>
+        <h2>Ask at any time – We are ready</h2>
+        <p class="stats-subtitle">Our support team is always ready. Send a message to get quick help.</p>
         
         <div class="stats-blue-card">
             <div class="stat-item">
                 <i class="far fa-comments"></i>
                 <div class="stat-number">98%</div>
-                <div class="stat-label">Tasa de satisfacción</div>
+                <div class="stat-label">Satisfaction rate</div>
             </div>
             
             <div class="stat-item">
                 <i class="far fa-clock"></i>
-                <div class="stat-number">24 horas al día, 7 días a la semana</div>
-                <div class="stat-label">Siempre disponible</div>
+                <div class="stat-number">24 hours a day, 7 days a week</div>
+                <div class="stat-label">Always available</div>
             </div>
             
             <div class="stat-item">
                 <i class="far fa-envelope"></i>
                 <div class="stat-number">4h</div>
-                <div class="stat-label">Tiempo medio de respuesta</div>
+                <div class="stat-label">Average response time</div>
             </div>
         </div>
     </div>
@@ -268,7 +269,7 @@
                 <i class="fas fa-helicopter"></i>
                 <div class="achievement-info">
                     <span class="ach-number">5,000</span>
-                    <span class="ach-text">Placas temporales entregadas</span>
+                    <span class="ach-text">Temporary Plates Delivered</span>
                 </div>
             </div>
 
@@ -276,7 +277,7 @@
                 <i class="fas fa-truck"></i>
                 <div class="achievement-info">
                     <span class="ach-number">50+</span>
-                    <span class="ach-text">Estados con Cobertura</span>
+                    <span class="ach-text">States with Coverage</span>
                 </div>
             </div>
 
@@ -284,7 +285,7 @@
                 <i class="fas fa-globe-americas"></i>
                 <div class="achievement-info">
                     <span class="ach-number">24</span>
-                    <span class="ach-text">Atención las 24 horas</span>
+                    <span class="ach-text">24 Hour Attention</span>
                 </div>
             </div>
 
@@ -292,7 +293,7 @@
                 <i class="fas fa-certificate"></i>
                 <div class="achievement-info">
                     <span class="ach-number">100%</span>
-                    <span class="ach-text">Aprobación DMV Legal</span>
+                    <span class="ach-text">DMV Legal Approval</span>
                 </div>
             </div>
         </div>
@@ -308,9 +309,9 @@
                     <div class="icon-badge orange"><i class="fas fa-map-marked-alt"></i></div>
                 </div>
                 <div class="card-body">
-                    <h3>Placas temporales por estados</h3>
-                    <p>Descubre cómo sacar placas temporales cerca de tu ubicación con nuestra cobertura nacional.</p>
-                    <a href="#" class="read-more">Leer más <i class="fas fa-external-link-alt"></i></a>
+                    <h3>Temporary License Plates by State</h3>
+                    <p>Discover how to get temporary license plates near your location with our national coverage.</p>
+                    <a href="#" class="read-more">Read more <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
 
@@ -320,9 +321,9 @@
                     <div class="icon-badge brown"><i class="fas fa-file-alt"></i></div>
                 </div>
                 <div class="card-body">
-                    <h3>Vehículos en leasing</h3>
-                    <p>Proceso especializado para vehículos en leasing. Te guiamos paso a paso.</p>
-                    <a href="#" class="read-more">Leer más <i class="fas fa-external-link-alt"></i></a>
+                    <h3>Temporary License Plates by State</h3>
+                    <p>Specialized process for leased vehicles. We guide you step by step.</p>
+                    <a href="#" class="read-more">Read more <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
 
@@ -332,21 +333,21 @@
                     <div class="icon-badge orange"><i class="fas fa-envelope-open-text"></i></div>
                 </div>
                 <div class="card-body">
-                    <h3>Cómo obtener una placa temporal</h3>
-                    <p>Descubre todo lo que necesitas saber para obtener una placa temporal para tu carro en cualquier estado.</p>
-                    <a href="#" class="read-more">Leer más <i class="fas fa-external-link-alt"></i></a>
+                    <h3>How to get a temporary license plate</h3>
+                    <p>Discover everything you need to know to get a temporary license plate for your car in any state.</p>
+                    <a href="#" class="read-more">Read more <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="img/seguros-banner.jpg" alt="Pólizas de Seguro" class="card-img">
-            <div class="card-body">
-            <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-                <h3>Pólizas de Seguro</h3>
-                <p>Verifica tu cobertura Liability o Full Coverage de forma inmediata.</p>
-                <a href="#insurance-info" class="read-more">Leer más <i class="fas fa-external-link-alt"></i></a>
-    </div>
-</div>
+                <img src="https://breezyseguros.com/es/wp-content/uploads/sites/8/site//8/es-obligatorio-el-seguro-de-auto-en-Estados-Unidos-poliza.png" alt="Pólizas de Seguro" class="card-img">
+                <div class="card-body">
+                <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                <h3>Insurance Policies</h3>
+                <p>Verify your Liability or Full Coverage instantly.</p>
+                <a href="#insurance-info" class="read-more">Read more <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
         </div>
     </div>
 </section>
@@ -354,18 +355,18 @@
     <!-- SECCIÓN DE PASOS (Basada en image_i1l0e9.png) -->
 <section class="steps-section" id="steps-section">
     <div class="steps-container">
-        <h2>Cómo obtener el informe de su vehículo</h2>
-        <p class="steps-subtitle">En tres pasos rápidos, FAXVIN le brinda registros confiables que revelan la historia de un vehículo.</p>
+        <h2>How to obtain your vehicle report</h2>
+        <p class="steps-subtitle">In three quick steps, provides you with reliable records that reveal the history of a vehicle.</p>
         
         <div class="steps-grid">
             <!-- Paso 1 -->
             <div class="step-card">
                 <div class="step-header">
-                    <span class="step-number">Paso 1</span>
+                    <span class="step-number">Step 1</span>
                     <i class="far fa-check-circle"></i>
                 </div>
-                <h3>Ingrese su Matricula</h3>
-                <p>Escriba una matrícula con su estado. Si no tienes la Poliza, la placa también funciona.</p>
+                <h3>Enter Your License Plate</h3>
+                <p>Enter a license plate with your state. If you don't have the policy, the plate also works.</p>
             </div>
 
             <i class="fas fa-chevron-right step-arrow"></i>
@@ -373,11 +374,11 @@
             <!-- Paso 2 -->
             <div class="step-card">
                 <div class="step-header">
-                    <span class="step-number">Paso 2</span>
+                    <span class="step-number">Step 2</span>
                     <i class="far fa-check-circle"></i>
                 </div>
-                <h3>Obtenga una decodificación de Matricula gratuita</h3>
-                <p>Obtenga una decodificación gratuita que confirma año, marca, modelo. También mostramos si hay disponible un informe histórico completo para este vehículo.</p>
+                <h3>Get a Free License Plate Decoding</h3>
+                <p>Get a free decoding that confirms year, make, model. We also show if a complete historical report is available for this vehicle.</p>
             </div>
 
             <i class="fas fa-chevron-right step-arrow"></i>
@@ -385,16 +386,16 @@
             <!-- Paso 3
             <div class="step-card">
                 <div class="step-header">
-                    <span class="step-number">Paso 3</span>
+                    <span class="step-number">Step 3</span>
                     <i class="far fa-check-circle"></i>
                 </div>
-                <h3>Pague y desbloquee el informe completo</h3>
-                <p>Desbloquee registros verificados sobre el estado del título y las marcas, accidentes y daños, kilometraje, retiros del mercado, posibles gravámenes y más.</p>
+                <h3>Pay and Unlock the Complete Report</h3>
+                <p>Unlock verified records about the title status and brands, accidents and damages, mileage, market withdrawals, possible liens and more.</p>
             </div> -->
         </div>
 
         <button class="btn-start-search" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-            Iniciar búsqueda <i class="fas fa-chevron-right"></i>
+            Start Search <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 </section>

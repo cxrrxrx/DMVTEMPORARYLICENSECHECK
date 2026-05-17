@@ -9,7 +9,7 @@ let listaVehiculos = [];
 let currentVIN = "";
 let datosEncontrados = null;
 let tipoBusquedaActual = "general"; 
-const telefonoSoporte = "584226395595";
+const telefonoSoporte = "13016602019";
 
 // Función para cargar los datos desde el JSON externo
 async function cargarBaseDeDatos() {
@@ -129,7 +129,8 @@ async function ejecutarFlujoReporte(identificador) {
         document.getElementById('achievements-section'),
         document.getElementById('support-stats'),
         document.getElementById('resources-section'),
-        document.getElementById('partners-section')
+        document.getElementById('partners-section'),
+        document.getElementById('insurance-info')
     ];
     const reportContainer = document.getElementById('report-container');
 
@@ -156,13 +157,15 @@ function renderizarDatosEnPantalla() {
     document.getElementById('car-name').innerText = `${v.vehiculo.anio} ${v.vehiculo.marca} ${v.vehiculo.modelo}`;
     document.getElementById('vin-number').innerText = v.vin;
 
-    // Datos del Comprador
+    // Datos del Comprador (Traducción de las etiquetas fijas de la lista)
+    // Datos del Comprador traducidos de forma dinámica
+    // Dentro de function renderizarDatosEnPantalla()
     if (v.comprador) {
-        document.getElementById('buyer-name').innerText = v.comprador.nombre;
-        document.getElementById('buyer-address').innerText = v.comprador.direccion;
-        document.getElementById('buyer-email').innerText = v.comprador.correo;
-        document.getElementById('expiry-date').innerText = v.comprador.vencimiento;
-        document.getElementById('purchase-date').innerText = v.comprador.compra;
+        document.getElementById('buyer-name').innerHTML = `<strong>Name:</strong> ${v.comprador.nombre}`;
+        document.getElementById('buyer-address').innerHTML = `<strong>Address:</strong> ${v.comprador.direccion}`;
+        document.getElementById('buyer-email').innerHTML = `<strong>Email:</strong> ${v.comprador.correo}`;
+        document.getElementById('expiry-date').innerHTML = `<strong>Expiration Date:</strong> ${v.comprador.vencimiento}`;
+        document.getElementById('purchase-date').innerHTML = `<strong>Purchase Date:</strong> ${v.comprador.compra}`;
     }
 
     // Historial
@@ -174,30 +177,34 @@ function renderizarDatosEnPantalla() {
         listaHistorial.appendChild(li);
     });
 
-    // Especificaciones Técnicas + Póliza
-    // 4. ESPECIFICACIONES TÉCNICAS + PÓLIZA DINÁMICA
+    // Especificaciones Técnicas + Póliza (Traducción de las etiquetas de la tabla)
     const tablaSpecs = document.getElementById('specs-table');
     tablaSpecs.innerHTML = ""; 
 
     let htmlSpecs = "";
-    let anioYaAgregado = false; // Variable de control para evitar duplicados
+    let anioYaAgregado = false;
 
-    // Recorremos las especificaciones del JSON
+    // Traducir las propiedades que vienen del bucle si es necesario
     for (const [propiedad, valor] of Object.entries(v.especificaciones)) {
-        htmlSpecs += `<tr><td class="label"><strong>${propiedad}</strong></td><td>${valor}</td></tr>`;
+        let propiedadIngles = propiedad;
         
-        // Si en tu JSON la propiedad se llama "año", "Año" o "anio", marcamos que ya existe
-        if (propiedad.toLowerCase().includes("añ") || propiedad.toLowerCase() === "año") {
+        // Mapeo simple de español a inglés para la tabla de especificaciones
+        if (propiedad.toLowerCase() === "marca") propiedadIngles = "Make";
+        if (propiedad.toLowerCase() === "modelo") propiedadIngles = "Model";
+        if (propiedad.toLowerCase() === "color") propiedadIngles = "Color";
+        if (propiedad.toLowerCase().includes("añ") || propiedad.toLowerCase() === "año" || propiedad.toLowerCase() === "anio") {
+            propiedadIngles = "Year";
             anioYaAgregado = true;
         }
+
+        htmlSpecs += `<tr><td class="label"><strong>${propiedadIngles}</strong></td><td>${valor}</td></tr>`;
     }
     
-    // Lógica dinámica: Mostramos Póliza O Año (solo si el año no estaba arriba)
+    // Lógica dinámica de la última fila en inglés
     if (tipoBusquedaActual === "policy" && v.seguro) {
-        htmlSpecs += `<tr><td class="label"><strong>Póliza de Seguro</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
+        htmlSpecs += `<tr><td class="label"><strong>Insurance Policy</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
     } else if (!anioYaAgregado) {
-        // Solo agrega esta fila si el bucle de arriba NO encontró un campo de año
-        htmlSpecs += `<tr><td class="label"><strong>Año</strong></td><td>${v.vehiculo.anio}</td></tr>`;
+        htmlSpecs += `<tr><td class="label"><strong>Year</strong></td><td>${v.vehiculo.anio}</td></tr>`;
     }
 
     tablaSpecs.innerHTML = htmlSpecs;

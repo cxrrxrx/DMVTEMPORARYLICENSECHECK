@@ -21,10 +21,10 @@
         },
         "historial": [
             "Alejandro Brito",
-            "Dirección: 123 Main St, Anytown, USA",
-            "correo: alejandro.brito@example.com",
-            "fecha de vencimiento: 30 de junio de 2023",
-            "Fecha de compra: 15 de marzo de 2020"
+            "Address: 123 Main St, Anytown, USA",
+            "Email: alejandro.brito@example.com",
+            "Expiration Date: 30 de junio de 2023",
+            "Purchase Date: 15 de marzo de 2020"
         ]
     },
     {
@@ -49,10 +49,10 @@
         },
         "historial": [
             "Alejandro Brito",
-            "Dirección: 123 Main St, Anytown, USA",
-            "correo: alejandro.brito@example.com",
-            "fecha de vencimiento: 30 de junio de 2023",
-            "Fecha de compra: 15 de marzo de 2020"
+            "Address: 123 Main St, Anytown, USA",
+            "Email: alejandro.brito@example.com",
+            "Expiration Date: 30 de junio de 2023",
+            "Purchase Date: 15 de marzo de 2020"
         ]
     },
     {
@@ -77,10 +77,10 @@
         },
         "historial": [
             "Moises Carrero",
-            "Dirección: 123 Main St, Anytown, USA",
-            "correo: moises.carrero@example.com",
-            "Fecha de compra: 15 de marzo de 2020",
-            "Fecha de vencimiento: 30 de junio de 2023"
+            "Address: 123 Main St, Anytown, USA",
+            "Email: moises.carrero@example.com",
+            "Purchase Date: 15 de marzo de 2020",
+            "Expiration Date: 30 de junio de 2023"
         ]
     }
 ]
