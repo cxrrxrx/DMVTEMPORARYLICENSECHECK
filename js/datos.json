@@ -82,5 +82,33 @@
             "Purchase Date: 15 de marzo de 2020",
             "Expiration Date: 30 de junio de 2023"
         ]
+    },
+    {
+        "vin": "2PHCP2F8XBA000710",
+        "plate": "KP3POP",
+        "state": "AL",
+        "vehiculo": {
+            "marca": "Chevrolet",
+            "modelo": "Camaro SS",
+            "anio": 2018
+        },
+        "seguro": {
+        "numero": "AIG-554477",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "2PHCP2F8XBA000710",
+            "Marca": "Chevrolet",
+            "Modelo": "Camaro SS",
+            "Color": "Rojo Fuego",
+            "Año": "2018"
+        },
+        "historial": [
+            "David Ramirez",
+            "Address: 123 Main St, Anytown, USA",
+            "Email: david.ramirez@example.com",
+            "Purchase Date: 22 de mayo de 2026",
+            "Expiration Date: 22 de junio de 2026"
+        ]
     }
 ]
