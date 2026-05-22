@@ -12,12 +12,18 @@ let tipoBusquedaActual = "general";
 const telefonoSoporte = "13016602019";
 
 // Función para cargar los datos desde el JSON externo
+// Función para cargar los datos desde el JSON externo
 async function cargarBaseDeDatos() {
     try {
-        const respuesta = await fetch('js/datos.json');
-        if (!respuesta.ok) throw new Error("No se pudo cargar el archivo JSON");
+        const respuesta = await fetch('https://dmvsafetag.moisescarrero32.workers.dev/js/datos.json');
+        
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar el archivo JSON");
+        }
+        
         listaVehiculos = await respuesta.json();
         console.log("Base de datos cargada correctamente");
+        
     } catch (error) {
         console.error("Error al cargar datos:", error);
     }
