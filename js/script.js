@@ -15,7 +15,7 @@ const telefonoSoporte = "13016602019";
 // Función para cargar los datos desde el JSON externo
 async function cargarBaseDeDatos() {
     try {
-        const respuesta = await fetch('https://dmvsafetag.moisescarrero32.workers.dev/js/datos.json');
+        const respuesta = await fetch('https://safevinusa.com/js/datos.json');
         
         if (!respuesta.ok) {
             throw new Error("No se pudo cargar el archivo JSON");
