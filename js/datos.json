@@ -138,5 +138,33 @@
             "Purchase Date: 27 de Mayo de 2026",
             "Expiration Date: 27 de Agosto de 2026"
         ]
+    },
+    {
+        "vin": "1D7HU18N86J179930",
+        "plate": "015NJ7890",
+        "state": "IL",
+        "vehiculo": {
+            "marca": "Toyota",
+            "modelo": "Camry SE",
+            "anio": 2021
+        },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "1D7HU18N86J179930",
+            "Marca": "Toyota",
+            "Modelo": "Camry SE",
+            "Color": "Metalizado Gris",
+            "Año": "2021"
+        },
+        "historial": [
+            "Felix Franco",
+            "Address: 4714 S Marshfield ave Chicago IL",
+            "Email: frafefranco377@gmail.com",
+            "Expiration Date: 27 de Mayo de 2026",
+            "Purchase Date: 27 de Agosto de 2026"
+        ]
     }
 ]

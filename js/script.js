@@ -64,8 +64,8 @@ function manejarBusquedaGeneral() {
         return;
     }
 
-    // Si tiene un guion "-" o longitud > 8, lo tratamos como PÓLIZA
-    if (inputPrincipal.includes('-') || inputPrincipal.length > 8) {
+    // Si tiene un guion "-" o longitud > 11, lo tratamos como PÓLIZA
+    if (inputPrincipal.includes('-') || inputPrincipal.length > 11) {
         console.log("Detectado como PÓLIZA");
         buscarPorPolizaDirecto(inputPrincipal, estadoSeleccionado);
     } else {
