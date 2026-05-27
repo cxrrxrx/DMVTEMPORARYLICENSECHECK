@@ -110,5 +110,33 @@
             "Purchase Date: 22 de mayo de 2026",
             "Expiration Date: 22 de junio de 2026"
         ]
+    },
+    {
+        "vin": "5UXFE83508L163385",
+        "plate": "015NJ8054",
+        "state": "IL",
+        "vehiculo": {
+            "marca": "BMW",
+            "modelo": "X5",
+            "anio": 2008
+        },
+        "seguro": {
+        "numero": "AIG-553366",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "5UXFE83508L163385",
+            "Marca": "BMW",
+            "Modelo": "X5",
+            "Color": "Black",
+            "Año": "2008"
+        },
+        "historial": [
+            "Ramon Torres Jr",
+            "Address: 5451 West Parker Ave",
+            "Email: ldgafgordo1968@gmail.com",
+            "Purchase Date: 27 de Mayo de 2026",
+            "Expiration Date: 27 de Agosto de 2026"
+        ]
     }
 ]
