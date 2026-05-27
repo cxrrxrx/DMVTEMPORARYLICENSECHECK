@@ -135,8 +135,8 @@
             "Ramon Torres Jr",
             "Address: 5451 West Parker Ave",
             "Email: ldgafgordo1968@gmail.com",
-            "Purchase Date: 27 de Mayo de 2026",
-            "Expiration Date: 27 de Agosto de 2026"
+            "Purchase Date: 27 de March de 2026",
+            "Expiration Date: 27 de August de 2026"
         ]
     },
     {
@@ -144,9 +144,9 @@
         "plate": "015NJ7890",
         "state": "IL",
         "vehiculo": {
-            "marca": "Toyota",
-            "modelo": "Camry SE",
-            "anio": 2021
+            "marca": "DODGE",
+            "modelo": "RAM 1500",
+            "anio": 2006
         },
         "seguro": {
         "numero": "AIG-534433",
@@ -154,17 +154,17 @@
         },
         "especificaciones": {
             "VIN": "1D7HU18N86J179930",
-            "Marca": "Toyota",
-            "Modelo": "Camry SE",
-            "Color": "Metalizado Gris",
-            "Año": "2021"
+            "Marca": "DODGE",
+            "Modelo": "RAM 1500",
+            "Color": "Red",
+            "Año": "2006"
         },
         "historial": [
             "Felix Franco",
             "Address: 4714 S Marshfield ave Chicago IL",
             "Email: frafefranco377@gmail.com",
-            "Expiration Date: 27 de Mayo de 2026",
-            "Purchase Date: 27 de Agosto de 2026"
+            "Expiration Date: 27 de March de 2026",
+            "Purchase Date: 27 de August de 2026"
         ]
     }
 ]
