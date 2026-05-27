@@ -120,6 +120,10 @@
             "modelo": "X5",
             "anio": 2008
         },
+        "seguro": {
+        "numero": "AIG-553366",
+        "tipo": "Full Coverage"
+        },
         "especificaciones": {
             "VIN": "5UXFE83508L163385",
             "Marca": "BMW",
