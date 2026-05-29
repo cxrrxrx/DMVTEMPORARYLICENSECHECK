@@ -83,5 +83,61 @@
             "Purchase Date: May 27, 2026",
             "Expiration Date: August 27, 2026"
         ]
+    },
+    {
+        "vin": "LBBPHH125PBE98651",
+        "plate": "DSC5479",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "QJMOTOR",
+            "modelo": "SRK",
+            "anio": 2023
+        },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "LBBPHH125PBE98651",
+            "Marca": "QJMOTOR",
+            "Modelo": "SRK",
+            "Color": "GREY",
+            "Año": "2023"
+        },
+        "historial": [
+            "Yadriel Marrero",
+            "Address: 2504 Highland Ave, Kissimmee, FL 34741",
+            "Email: manuelmarrerox71@gmail.com",
+            "Purchase Date: May 29, 2026",
+            "Expiration Date: August 29, 2026"
+        ]
+    },
+    {
+        "vin": "4S3BL616987223064",
+        "plate": "DSC6890",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "SUBARU",
+            "modelo": "LEGACY",
+            "anio": 2008
+        },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "4S3BL616987223064",
+            "Marca": "QJMOTOR",
+            "Modelo": "SRK",
+            "Color": "SILVER",
+            "Año": "2008"
+        },
+        "historial": [
+            "Da'von Smalls",
+            "Address: 4021 N Nebraska Ave Tampa FL 33603",
+            "Email: vonsmalls90@gmail.com",
+            "Purchase Date: May 29, 2026",
+            "Expiration Date: June 29, 2026"
+        ]
     }
 ]
