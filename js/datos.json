@@ -57,34 +57,6 @@
         ]
     },
     {
-        "vin": "1D7HU18N86J179930",
-        "plate": "015NJ7890",
-        "state": "IL",
-        "vehiculo": {
-            "marca": "DODGE",
-            "modelo": "RAM 1500",
-            "anio": 2006
-        },
-        "seguro": {
-        "numero": "AIG-534433",
-        "tipo": "Full Coverage" 
-        },
-        "especificaciones": {
-            "VIN": "1D7HU18N86J179930",
-            "Marca": "DODGE",
-            "Modelo": "RAM 1500",
-            "Color": "Red",
-            "Año": "2006"
-        },
-        "historial": [
-            "Felix Franco",
-            "Address: 4714 S Marshfield ave Chicago IL",
-            "Email: frafefranco377@gmail.com",
-            "Purchase Date: May 27, 2026",
-            "Expiration Date: August 27, 2026"
-        ]
-    },
-    {
         "vin": "LBBPHH125PBE98651",
         "plate": "DSC5479",
         "state": "FL",
@@ -138,34 +110,6 @@
             "Email: vonsmalls90@gmail.com",
             "Purchase Date: May 29, 2026",
             "Expiration Date: June 29, 2026"
-        ]
-    },
-    {
-        "vin": "3GSCL53748S730934",
-        "plate": "015NJ5689",
-        "state": "IL",
-        "vehiculo": {
-            "marca": "SATURN",
-            "modelo": "VUE",
-            "anio": 2008
-        },
-        "seguro": {
-        "numero": "AIG-534433",
-        "tipo": "Full Coverage" 
-        },
-        "especificaciones": {
-            "VIN": "3GSCL53748S7300934",
-            "Marca": "SATURN",
-            "Modelo": "VUE",
-            "Color": "RED",
-            "Año": "2008"
-        },
-        "historial": [
-            "Fantaisha Lanza",
-            "Address: 2120 w Marquette road Chicago IL 60636",
-            "Email: bennettlyn28@gmail.com",
-            "Purchase Date: May 29, 2026",
-            "Expiration Date: August 29, 2026"
         ]
     }
 ]
