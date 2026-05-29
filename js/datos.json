@@ -111,5 +111,33 @@
             "Purchase Date: May 29, 2026",
             "Expiration Date: June 29, 2026"
         ]
+    },
+    {
+        "vin": "1FMYU02Z46KB78764",
+        "plate": "015NJ7523",
+        "state": "IL",
+        "vehiculo": {
+            "marca": "FORD",
+            "modelo": "ESCAPE ",
+            "anio": 2006
+        },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "1FMYU02Z46KB78764",
+            "Marca": "FORD",
+            "Modelo": "ESCAPE ",
+            "Color": "DARK-GREY",
+            "Año": "2006"
+        },
+        "historial": [
+            "Christopher M Ramey",
+            "Address: 15613 Dixie Hwy, Harvey IL 60426",
+            "Email: elmickey154@gmail.com",
+            "Purchase Date: May 29, 2026",
+            "Expiration Date: August 29, 2026"
+        ]
     }
 ]
