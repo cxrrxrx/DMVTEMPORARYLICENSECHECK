@@ -139,5 +139,33 @@
             "Purchase Date: May 29, 2026",
             "Expiration Date: August 29, 2026"
         ]
+    },
+    {
+        "vin": "1N4AL3AP5GC222203",
+        "plate": "DSC9055",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "NISSAN",
+            "modelo": "ALTIMA ",
+            "anio": 2016
+        },
+        "seguro": {
+        "numero": "AIG-534433",
+        "tipo": "Full Coverage" 
+        },
+        "especificaciones": {
+            "VIN": "1N4AL3AP5GC222203",
+            "Marca": "NISSAN",
+            "Modelo": "ALTIMA ",
+            "Color": "GREY",
+            "Año": "2016"
+        },
+        "historial": [
+            "Jaylin Brinson",
+            "Address: 10200 Belle Rive Blvd UNIT 3806 Jacksonville FL 32256",
+            "Email: jaylinbrinson@gmail.com",
+            "Purchase Date: May 30, 2026",
+            "Expiration Date: August 30, 2026"
+        ]
     }
 ]
