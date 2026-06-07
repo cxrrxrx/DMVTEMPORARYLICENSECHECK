@@ -9,9 +9,9 @@ let listaVehiculos = [];
 let currentVIN = "";
 let datosEncontrados = null;
 let tipoBusquedaActual = "general"; 
+let tipoFiltroActivo = "MATRÍCULA"; // Controla de forma estricta el modo según la pestaña activa
 const telefonoSoporte = "13016602019";
 
-// Función para cargar los datos desde el JSON externo
 // Función para cargar los datos desde el JSON externo
 async function cargarBaseDeDatos() {
     try {
@@ -32,6 +32,29 @@ async function cargarBaseDeDatos() {
 // 2. INICIALIZACIÓN Y EVENTOS
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarBaseDeDatos();
+
+    // --- DETECTOR AUTOMÁTICO DE PESTAÑAS (TABS) ---
+    // Mapea dinámicamente los clics de la interfaz para cambiar el tipo de filtro sin alterar el HTML
+    const elementosTabs = document.querySelectorAll('.hero tr td, .tab, button, a, [class*="tab"]');
+    elementosTabs.forEach(elemento => {
+        if (elemento.innerText) {
+            const textoEnMayusculas = elemento.innerText.toUpperCase();
+            
+            if (textoEnMayusculas.includes('POLICY')) {
+                elemento.addEventListener('click', () => {
+                    tipoFiltroActivo = "PÓLIZA";
+                    console.log("Filtro de interfaz cambiado a: PÓLIZA");
+                });
+            }
+            if (textoEnMayusculas.includes('LICENSE') || textoEnMayusculas.includes('PLATE')) {
+                elemento.addEventListener('click', () => {
+                    tipoFiltroActivo = "MATRÍCULA";
+                    console.log("Filtro de interfaz cambiado a: MATRÍCULA");
+                });
+            }
+        }
+    });
+    // -----------------------------------------------
 
     // Eventos para búsqueda por VIN
     const btnSearchVIN = document.getElementById('btn-search');
@@ -64,8 +87,8 @@ function manejarBusquedaGeneral() {
         return;
     }
 
-    // Si tiene un guion "-" o longitud > 11, lo tratamos como PÓLIZA
-    if (inputPrincipal.includes('-') || inputPrincipal.length > 11) {
+    // Se eliminó la adivinanza por longitud (.length). Ahora evalúa según la pestaña activa en tu UI.
+    if (tipoFiltroActivo === "PÓLIZA" || inputPrincipal.includes('-')) {
         console.log("Detectado como PÓLIZA");
         buscarPorPolizaDirecto(inputPrincipal, estadoSeleccionado);
     } else {
@@ -110,7 +133,7 @@ function buscarPorMatriculaDirecto(valorPlaca, estado) {
 
 function buscarPorPolizaDirecto(valorPoliza, estado) {
     tipoBusquedaActual = "policy"; 
-    // Validación de Póliza + Estado (Nueva lógica solicitada)
+    // Validación de Póliza + Estado
     datosEncontrados = listaVehiculos.find(v => 
         v.seguro && 
         v.seguro.numero.toUpperCase() === valorPoliza && 
@@ -163,9 +186,7 @@ function renderizarDatosEnPantalla() {
     document.getElementById('car-name').innerText = `${v.vehiculo.anio} ${v.vehiculo.marca} ${v.vehiculo.modelo}`;
     document.getElementById('vin-number').innerText = v.vin;
 
-    // Datos del Comprador (Traducción de las etiquetas fijas de la lista)
-    // Datos del Comprador traducidos de forma dinámica
-    // Dentro de function renderizarDatosEnPantalla()
+    // Datos del Comprador dinámicos
     if (v.comprador) {
         document.getElementById('buyer-name').innerHTML = `<strong>Name:</strong> ${v.comprador.nombre}`;
         document.getElementById('buyer-address').innerHTML = `<strong>Address:</strong> ${v.comprador.direccion}`;
@@ -183,18 +204,16 @@ function renderizarDatosEnPantalla() {
         listaHistorial.appendChild(li);
     });
 
-    // Especificaciones Técnicas + Póliza (Traducción de las etiquetas de la tabla)
+    // Especificaciones Técnicas + Póliza
     const tablaSpecs = document.getElementById('specs-table');
     tablaSpecs.innerHTML = ""; 
 
     let htmlSpecs = "";
     let anioYaAgregado = false;
 
-    // Traducir las propiedades que vienen del bucle si es necesario
     for (const [propiedad, valor] of Object.entries(v.especificaciones)) {
         let propiedadIngles = propiedad;
         
-        // Mapeo simple de español a inglés para la tabla de especificaciones
         if (propiedad.toLowerCase() === "marca") propiedadIngles = "Make";
         if (propiedad.toLowerCase() === "modelo") propiedadIngles = "Model";
         if (propiedad.toLowerCase() === "color") propiedadIngles = "Color";
@@ -206,7 +225,6 @@ function renderizarDatosEnPantalla() {
         htmlSpecs += `<tr><td class="label"><strong>${propiedadIngles}</strong></td><td>${valor}</td></tr>`;
     }
     
-    // Lógica dinámica de la última fila en inglés
     if (tipoBusquedaActual === "policy" && v.seguro) {
         htmlSpecs += `<tr><td class="label"><strong>Insurance Policy</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
     } else if (!anioYaAgregado) {
