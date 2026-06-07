@@ -87,12 +87,18 @@ function manejarBusquedaGeneral() {
         return;
     }
 
-    // Se eliminó la adivinanza por longitud (.length). Ahora evalúa según la pestaña activa en tu UI.
-    if (tipoFiltroActivo === "PÓLIZA" || inputPrincipal.includes('-')) {
-        console.log("Detectado como PÓLIZA");
+    // --- LÓGICA HÍBRIDA AUTO-CORRECTIVA ---
+    // 1. Si la pestaña activa es PÓLIZA...
+    // 2. O si el texto contiene un guion...
+    // 3. O si son puros números y mide más de 8 dígitos (como tus pólizas de 10 números)...
+    // ¡Entonces es una PÓLIZA garantizada!
+    const esSoloNumerosLargos = /^\d+$/.test(inputPrincipal) && inputPrincipal.length > 8;
+
+    if (tipoFiltroActivo === "PÓLIZA" || inputPrincipal.includes('-') || esSoloNumerosLargos) {
+        console.log("Sistema determinó: PÓLIZA");
         buscarPorPolizaDirecto(inputPrincipal, estadoSeleccionado);
     } else {
-        console.log("Detectado como MATRÍCULA");
+        console.log("Sistema determinó: MATRÍCULA");
         buscarPorMatriculaDirecto(inputPrincipal, estadoSeleccionado);
     }
 }
