@@ -167,5 +167,33 @@
             "Purchase Date: May 30, 2026",
             "Expiration Date: August 30, 2026"
         ]
+    },
+    {
+        "vin": "2C3KA53G47H722299",
+        "plate": "DSC8572",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "CHRYSLER",
+            "modelo": "300 ",
+            "anio": 2009
+        },
+        "seguro": {
+        "numero": "1256958085",
+        "tipo": "GEICO - (LIABILITY)" 
+        },
+        "especificaciones": {
+            "VIN": "2C3KA53G47H722299",
+            "Marca": "CHRYSLER",
+            "Modelo": "300",
+            "Color": "GREY",
+            "Año": "2009"
+        },
+        "historial": [
+            "Keeney Diaz",
+            "Address: 19900 NW 37TH AVE #81 MIAMI GARDENS, FL 33056",
+            "Email: keeneydiaz@gmail.com",
+            "Purchase Date: June 07, 2026",
+            "Expiration Date: September 07, 2026"
+        ]
     }
 ]
