@@ -175,18 +175,18 @@
         "vehiculo": {
             "marca": "CHRYSLER",
             "modelo": "300 ",
-            "anio": 2009
+            "anio": 2007
         },
         "seguro": {
         "numero": "1256958085",
-        "tipo": "GEICO - (LIABILITY)" 
+        "tipo": "GEICO - LIABILITY" 
         },
         "especificaciones": {
             "VIN": "2C3KA53G47H722299",
             "Marca": "CHRYSLER",
             "Modelo": "300",
-            "Color": "GREY",
-            "Año": "2009"
+            "Color": "WHITE",
+            "Año": "2007"
         },
         "historial": [
             "Keeney Diaz",
