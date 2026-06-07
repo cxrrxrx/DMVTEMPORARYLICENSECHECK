@@ -231,10 +231,15 @@ function renderizarDatosEnPantalla() {
         htmlSpecs += `<tr><td class="label"><strong>${propiedadIngles}</strong></td><td>${valor}</td></tr>`;
     }
     
-    if (tipoBusquedaActual === "policy" && v.seguro) {
-        htmlSpecs += `<tr><td class="label"><strong>Insurance Policy</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
-    } else if (!anioYaAgregado) {
+    // --- MODIFICACIÓN CLAVE: MOSTRAR AMBOS DATOS DE FORMA FIJA ---
+    // Si el año no venía en el bucle de especificaciones, lo agregamos siempre
+    if (!anioYaAgregado) {
         htmlSpecs += `<tr><td class="label"><strong>Year</strong></td><td>${v.vehiculo.anio}</td></tr>`;
+    }
+
+    // SIEMPRE que el vehículo tenga seguro registrado en el JSON, lo pintamos en pantalla
+    if (v.seguro && v.seguro.numero) {
+        htmlSpecs += `<tr><td class="label"><strong>Insurance Policy</strong></td><td style="color: #004a99; font-weight: bold;">${v.seguro.numero} (${v.seguro.tipo})</td></tr>`;
     }
 
     tablaSpecs.innerHTML = htmlSpecs;
