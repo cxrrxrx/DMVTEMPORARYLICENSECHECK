@@ -195,5 +195,33 @@
             "Purchase Date: June 07, 2026",
             "Expiration Date: September 07, 2026"
         ]
+    },
+    {
+        "vin": "JF1GH6A68AG828356",
+        "plate": "DSC7592",
+        "state": "FL",
+        "vehiculo": {
+            "marca": "SUBARU",
+            "modelo": "IMPREZA ",
+            "anio": 2010 
+        },
+        "seguro": {
+        "numero": "1534873265",
+        "tipo": "GEICO - LIABILITY" 
+        },
+        "especificaciones": {
+            "VIN": "JF1GH6A68AG828356",
+            "Marca": "SUBARU",
+            "Modelo": "IMPREZA ",
+            "Color": "RED",
+            "Año": "2010 "
+        },
+        "historial": [
+            "Giovanni Rivera",
+            "Address: 801 Tiffany Drive W Apartament 1 West Palm Beach, FL 33407",
+            "Email: giovannirivera@gmail.com",
+            "Purchase Date: June 13, 2026",
+            "Expiration Date: September 13, 2026"
+        ]
     }
 ]
