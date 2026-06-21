@@ -157,7 +157,7 @@ function buscarPorPolizaDirecto(valorPoliza, estado) {
 
 // 5. ORQUESTADOR DE FLUJO VISUAL
 async function ejecutarFlujoReporte(identificador) {
-    const heroSection = document.querySelector('.hero');
+    const heroSection = document.querySelector('.hero-premium');
     const sectionsToHide = [
         document.getElementById('info-section'),
         document.getElementById('about-plates'),
