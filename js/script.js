@@ -171,6 +171,9 @@ async function ejecutarFlujoReporte(identificador) {
         document.getElementById('about-plates'),
         document.getElementById('trust-section')
     ];
+    sectionsToHide.forEach(section => {
+        if (section) section.style.display = 'none';
+    });
     const reportContainer = document.getElementById('report-container');
 
     toggleLoader(true);

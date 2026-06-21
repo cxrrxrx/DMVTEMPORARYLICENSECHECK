@@ -1671,3 +1671,259 @@ body {
     line-height: 1.5;
     margin: 0;
 }
+
+/* ==========================================================================
+   📖 SECCIONES DE CONTENIDO DE TEXTO (Plates & Insurance Info)
+   ========================================================================== */
+.text-section-premium {
+    background: #ffffff;
+    padding: 80px 20px;
+}
+
+.text-container-modern {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.text-container-modern h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+.text-container-modern p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+/* Lista estilizada de seguros (Image_08affd) */
+.insurance-list-modern {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.insurance-list-modern li {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.insurance-list-modern li i {
+    color: #10b981;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   💳 METODOS DE PAGO Y LOGÍSTICA (Image_08ac92)
+   ========================================================================== */
+.features-section-premium {
+    background: #f8fafc;
+    padding: 80px 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.features-grid-modern {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.feature-box-modern {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.feature-box-modern img {
+    height: 65px;
+    margin-bottom: 25px;
+    object-fit: contain;
+}
+
+.feature-box-modern h3 {
+    font-size: 1.4rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.feature-list-modern {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.feature-list-modern li {
+    font-size: 1rem;
+    color: #475569;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-list-modern li::before {
+    content: "•";
+    color: #10b981;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   📰 BLOQUES DE RECURSOS / TARJETAS DE BLOG (Image_08ac38)
+   ========================================================================== */
+.resources-grid-modern {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.resource-card-modern {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.resource-img-container {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.resource-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.resource-badge-icon {
+    position: absolute;
+    bottom: -15px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: #10b981;
+    color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.resource-content-modern {
+    padding: 30px 25px 25px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resource-content-modern h4 {
+    font-size: 1.15rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.resource-content-modern p {
+    font-size: 0.92rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.resource-link-modern {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.resource-link-modern:hover {
+    color: #059669;
+}
+
+/* ==========================================================================
+   🤝 SECCIÓN SELLO DE PARTNERS (Image_085a5d)
+   ========================================================================== */
+.partners-section-premium {
+    background: #ffffff;
+    padding: 60px 20px;
+    border-top: 1px solid #f1f5f9;
+    text-align: center;
+}
+
+.partners-title-modern {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    margin-bottom: 35px;
+}
+
+.partners-flex-modern {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px 50px;
+}
+
+.partners-flex-modern img {
+    height: 32px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.partners-flex-modern img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
