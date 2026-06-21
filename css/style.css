@@ -1475,3 +1475,199 @@ body {
         color: #0f172a !important;
     }
 }
+
+/* ==========================================================================
+   📊 SECCIÓN ESTADÍSTICAS & LOGROS (Premium Counters)
+   ========================================================================== */
+.stats-section-premium {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.stats-grid-modern {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.stat-card-modern {
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-card-modern:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-card-modern i {
+    font-size: 2.2rem;
+    color: #10b981; /* Verde esmeralda */
+    margin-bottom: 15px;
+}
+
+.stat-number-modern {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 5px 0;
+    letter-spacing: -1px;
+}
+
+.stat-label-modern {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ⭐ SECCIÓN TESTIMONIOS (Modern Grid Reviews)
+   ========================================================================== */
+.reviews-section-premium {
+    background: #f8fafc;
+    padding: 80px 20px;
+}
+
+.section-title-modern {
+    text-align: center;
+    font-size: 2rem;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+.section-title-modern span {
+    color: #10b981;
+}
+
+.reviews-grid-modern {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card-modern {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.02);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-stars {
+    color: #f59e0b; /* Dorado para las estrellas */
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.review-text-modern {
+    color: #475569;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 20px 0;
+}
+
+.review-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+}
+
+.review-avatar-mini {
+    width: 40px;
+    height: 40px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.review-user-name {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.review-user-verified {
+    font-size: 0.8rem;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ==========================================================================
+   🛡️ SECCIÓN CONFIANZA / PASOS (How it Works)
+   ========================================================================== */
+.steps-section-premium {
+    background: #ffffff;
+    padding: 80px 20px;
+}
+
+.steps-grid-modern {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.step-item-modern {
+    text-align: center;
+    position: relative;
+}
+
+.step-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 20px auto;
+    transition: all 0.3s ease;
+}
+
+.step-item-modern:hover .step-icon-circle {
+    background: #10b981;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.step-item-modern h4 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.step-item-modern p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}

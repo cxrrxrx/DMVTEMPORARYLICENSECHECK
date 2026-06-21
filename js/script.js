@@ -166,7 +166,10 @@ async function ejecutarFlujoReporte(identificador) {
         document.getElementById('support-stats'),
         document.getElementById('resources-section'),
         document.getElementById('partners-section'),
-        document.getElementById('insurance-info')
+        document.getElementById('insurance-info'),
+        document.getElementById('support-stats'),
+        document.getElementById('about-plates'),
+        document.getElementById('trust-section')
     ];
     const reportContainer = document.getElementById('report-container');
 
