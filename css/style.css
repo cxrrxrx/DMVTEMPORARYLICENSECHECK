@@ -1386,3 +1386,92 @@ body {
     border-color: #94a3b8;
     background: #f8fafc;
 }
+
+/* ==========================================================================
+   🎯 ESTILOS PREMIUM DE IMPRESIÓN (MEDIOS @media print)
+   ========================================================================== */
+@media print {
+    /* 1. Ocultar absolutamente todo lo que no sea el reporte */
+    header, 
+    .hero-premium, 
+    .search-box-modern, 
+    .report-actions-modern, 
+    footer, 
+    #info-section, 
+    #about-plates, 
+    #trust-section, 
+    #achievements-section, 
+    #support-stats, 
+    #resources-section, 
+    #partners-section, 
+    #insurance-info,
+    [id*="whatsapp"], /* Oculta cualquier widget flotante de WhatsApp */
+    .whatsapp-btn,
+    iframe {
+        display: none !important;
+    }
+
+    /* 2. Forzar al contenedor principal a ocupar todo el ancho sin márgenes web */
+    body, html {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: 'Segoe UI', Arial, sans-serif !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #report-container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+    }
+
+    /* 3. Ajustar la grilla de dos columnas para que no se rompa en papel */
+    .report-grid-modern {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+        margin-top: 20px !important;
+    }
+
+    /* 4. Estilizar las tarjetas para que parezcan un documento impreso limpio */
+    .card-premium {
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 12px !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+        background: #ffffff !important;
+        page-break-inside: avoid; /* Evita que una tarjeta se parta en dos páginas */
+    }
+
+    /* 5. Asegurar la visibilidad de los textos y quitar fondos oscuros */
+    .report-main-header h2 {
+        color: #0f172a !important;
+        font-size: 2rem !important;
+    }
+
+    .vin-badge-premium {
+        background: #f1f5f9 !important;
+        color: #334155 !important;
+        border: 1px solid #cbd5e1 !important;
+        -webkit-print-color-adjust: exact; /* Forzar al navegador a pintar el fondo gris suave */
+        print-color-adjust: exact;
+    }
+
+    /* Destacar la fila de la póliza de seguro de forma elegante en el papel */
+    .policy-highlight-row {
+        background-color: #eff6ff !important;
+        border-left: 4px solid #2563eb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Quitar los íconos si el navegador no los renderiza bien al imprimir (opcional, pero da más limpieza) */
+    .card-premium h3 i, 
+    .check-icon {
+        color: #0f172a !important;
+    }
+}
