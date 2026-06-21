@@ -193,20 +193,27 @@ function renderizarDatosEnPantalla() {
     document.getElementById('car-name').innerText = `${v.vehiculo.anio} ${v.vehiculo.marca} ${v.vehiculo.modelo}`;
     document.getElementById('vin-number').innerText = v.vin;
 
-   // Datos del Comprador dinámicos - Versión Remastered
-    if (v.comprador) {
-        // Aseguramos mantener el ícono y la estructura limpia
+   
+    // Rellenar Información del Comprador usando el arreglo 'historial'
+    if (v.historial && v.historial.length >= 5) {
         const nameEl = document.getElementById('buyer-name');
         const addressEl = document.getElementById('buyer-address');
         const emailEl = document.getElementById('buyer-email');
         const purchaseEl = document.getElementById('purchase-date');
         const expiryEl = document.getElementById('expiry-date');
 
-        if (nameEl) nameEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Name:</strong> ${v.comprador.nombre || v.comprador.name || '-'}`;
-        if (addressEl) addressEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Address:</strong> ${v.comprador.direccion || v.comprador.address || '-'}`;
-        if (emailEl) emailEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Email:</strong> ${v.comprador.correo || v.comprador.email || '-'}`;
-        if (purchaseEl) purchaseEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Purchase Date:</strong> ${v.comprador.compra || v.comprador.purchase || '-'}`;
-        if (expiryEl) expiryEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Expiration Date:</strong> ${v.comprador.vencimiento || v.comprador.expiry || '-'}`;
+        // Limpiamos los prefijos para que no se dupliquen con las etiquetas <strong>
+        const nombreLimpio = v.historial[0];
+        const direccionLimpia = v.historial[1].replace(/^Address:\s*/i, '');
+        const emailLimpio = v.historial[2].replace(/^Email:\s*/i, '');
+        const compraLimpia = v.historial[3].replace(/^Purchase Date:\s*/i, '');
+        const vencimientoLimpio = v.historial[4].replace(/^Expiration Date:\s*/i, '');
+
+        if (nameEl) nameEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Name:</strong> ${nombreLimpio}`;
+        if (addressEl) addressEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Address:</strong> ${direccionLimpia}`;
+        if (emailEl) emailEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Email:</strong> ${emailLimpio}`;
+        if (purchaseEl) purchaseEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Purchase Date:</strong> ${compraLimpia}`;
+        if (expiryEl) expiryEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Expiration Date:</strong> ${vencimientoLimpio}`;
     }
 
     // Historial
