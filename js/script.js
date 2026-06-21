@@ -193,13 +193,20 @@ function renderizarDatosEnPantalla() {
     document.getElementById('car-name').innerText = `${v.vehiculo.anio} ${v.vehiculo.marca} ${v.vehiculo.modelo}`;
     document.getElementById('vin-number').innerText = v.vin;
 
-    // Datos del Comprador dinámicos
+   // Datos del Comprador dinámicos - Versión Remastered
     if (v.comprador) {
-        document.getElementById('buyer-name').innerHTML = `<strong>Name:</strong> ${v.comprador.nombre}`;
-        document.getElementById('buyer-address').innerHTML = `<strong>Address:</strong> ${v.comprador.direccion}`;
-        document.getElementById('buyer-email').innerHTML = `<strong>Email:</strong> ${v.comprador.correo}`;
-        document.getElementById('expiry-date').innerHTML = `<strong>Expiration Date:</strong> ${v.comprador.vencimiento}`;
-        document.getElementById('purchase-date').innerHTML = `<strong>Purchase Date:</strong> ${v.comprador.compra}`;
+        // Aseguramos mantener el ícono y la estructura limpia
+        const nameEl = document.getElementById('buyer-name');
+        const addressEl = document.getElementById('buyer-address');
+        const emailEl = document.getElementById('buyer-email');
+        const purchaseEl = document.getElementById('purchase-date');
+        const expiryEl = document.getElementById('expiry-date');
+
+        if (nameEl) nameEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Name:</strong> ${v.comprador.nombre || v.comprador.name || '-'}`;
+        if (addressEl) addressEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Address:</strong> ${v.comprador.direccion || v.comprador.address || '-'}`;
+        if (emailEl) emailEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Email:</strong> ${v.comprador.correo || v.comprador.email || '-'}`;
+        if (purchaseEl) purchaseEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Purchase Date:</strong> ${v.comprador.compra || v.comprador.purchase || '-'}`;
+        if (expiryEl) expiryEl.innerHTML = `<i class="fas fa-check check-icon"></i> <strong>Expiration Date:</strong> ${v.comprador.vencimiento || v.comprador.expiry || '-'}`;
     }
 
     // Historial
