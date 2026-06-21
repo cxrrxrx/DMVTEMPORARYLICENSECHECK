@@ -962,3 +962,231 @@ body {
     object-fit: cover; /* Esto evita que la imagen se estire */
     display: block;
 }
+
+/* --- HERO REMASTERED DESIGN --- */
+.hero-premium {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://safevinusa.com/images/hero-bg.jpg') center/cover no-repeat; /* Usa tu imagen de fondo real */
+    padding: 40px 20px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content-modern {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 968px) {
+    .hero-content-modern {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
+
+/* --- TEXTOS --- */
+.hero-text-premium .brand-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.hero-text-premium .brand-title span {
+    color: #10b981; /* Verde esmeralda dinámico */
+}
+
+.hero-text-premium .brand-subtitle {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.trust-badges-mini {
+    display: flex;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 968px) {
+    .trust-badges-mini { justify-content: center; }
+}
+
+/* --- TARJETA DE BÚSQUEDA (GLASSMORPHISM) --- */
+.search-box-modern {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box-modern:hover {
+    box-shadow: 0 30px 60px rgba(16, 185, 129, 0.15);
+}
+
+/* --- PESTAÑAS (TABS MODERNIOS) --- */
+.search-tabs-modern {
+    display: flex;
+    background: rgba(15, 23, 42, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tab-modern {
+    flex: 1;
+    padding: 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tab-modern:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tab-modern.active-tab {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 -3px 0 #10b981; /* Deslizador verde inferior */
+}
+
+/* --- CAMPOS DE ENTRADA Y FORMULARIO --- */
+.form-content-modern {
+    padding: 30px;
+}
+
+.input-label-modern {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.input-container-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-field-wrapper, .select-field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon, .select-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.modern-input, .modern-select {
+    width: 100%;
+    padding: 15px 16px 15px 48px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.modern-select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
+}
+
+.modern-input::placeholder { color: #475569; }
+
+/* Enfoque (Focus) de Inputs */
+.modern-input:focus, .modern-select:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.modern-input:focus ~ .input-icon, .modern-select:focus ~ .select-icon {
+    color: #10b981;
+}
+
+/* --- BOTÓN PREMIUM DE BÚSQUEDA --- */
+.modern-search-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-search-btn:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+}
+
+.modern-search-btn:active {
+    transform: translateY(1px);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+}
+
+.modern-search-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}

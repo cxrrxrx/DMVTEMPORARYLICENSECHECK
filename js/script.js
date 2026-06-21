@@ -35,25 +35,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // --- DETECTOR AUTOMÁTICO DE PESTAÑAS (TABS) ---
     // Mapea dinámicamente los clics de la interfaz para cambiar el tipo de filtro sin alterar el HTML
-    const elementosTabs = document.querySelectorAll('.hero tr td, .tab, button, a, [class*="tab"]');
+    // --- DETECTOR AUTOMÁTICO DE PESTAÑAS REMASTERED ---
+    const elementosTabs = document.querySelectorAll('.tab-modern');
     elementosTabs.forEach(elemento => {
-        if (elemento.innerText) {
+        elemento.addEventListener('click', () => {
+            // Quitamos la clase activa a todas las pestañas
+            elementosTabs.forEach(t => t.classList.remove('active-tab'));
+            // Se la ponemos a la pestaña cliqueada
+            elemento.classList.add('active-tab');
+
             const textoEnMayusculas = elemento.innerText.toUpperCase();
-            
             if (textoEnMayusculas.includes('POLICY')) {
-                elemento.addEventListener('click', () => {
-                    tipoFiltroActivo = "PÓLIZA";
-                    console.log("Filtro de interfaz cambiado a: PÓLIZA");
-                });
+                tipoFiltroActivo = "PÓLIZA";
+                console.log("Filtro cambiado a: PÓLIZA");
+            } else {
+                tipoFiltroActivo = "MATRÍCULA";
+                console.log("Filtro cambiado a: MATRÍCULA");
             }
-            if (textoEnMayusculas.includes('LICENSE') || textoEnMayusculas.includes('PLATE')) {
-                elemento.addEventListener('click', () => {
-                    tipoFiltroActivo = "MATRÍCULA";
-                    console.log("Filtro de interfaz cambiado a: MATRÍCULA");
-                });
-            }
-        }
+        });
     });
+    // --------------------------------------------------
     // -----------------------------------------------
 
     // Eventos para búsqueda por VIN
