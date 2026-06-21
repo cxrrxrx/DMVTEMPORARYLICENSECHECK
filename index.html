@@ -123,34 +123,55 @@
     </div>
 
     <!-- CONTENEDOR DEL REPORTE (Oculto por defecto) -->
-    <main id="report-container" class="report-container" style="display: none;">
-        <div class="report-header">
-            <h1 id="car-name">Vehicle Name</h1>
-            <div class="vin-display">VIN: <span id="vin-number"></span></div>
+<main id="report-container" class="report-container" style="display: none;">
+    
+    <!-- Encabezado del Vehículo Remastered -->
+    <div class="report-main-header">
+        <h1 id="car-name">Vehicle Name</h1>
+        <div class="vin-badge-premium">
+            <i class="fas fa-fingerprint"></i> VIN: <span id="vin-number"></span>
+        </div>
+    </div>
+
+    <!-- Grilla de Tarjetas Moderna -->
+    <div class="report-grid-modern">
+        
+        <!-- Tarjeta: Información del Comprador -->
+        <div class="card-premium">
+            <h3><i class="fas fa-user-shield"></i> Buyer Information</h3>
+            <ul class="buyer-list-modern">
+                <li id="buyer-name"><i class="fas fa-check check-icon"></i> <strong>Name:</strong> -</li>
+                <li id="buyer-address"><i class="fas fa-check check-icon"></i> <strong>Address:</strong> -</li>
+                <li id="buyer-email"><i class="fas fa-check check-icon"></i> <strong>Email:</strong> -</li>
+                <li id="purchase-date"><i class="fas fa-check check-icon"></i> <strong>Purchase Date:</strong> -</li>
+                <li id="expiry-date"><i class="fas fa-check check-icon"></i> <strong>Expiration Date:</strong> -</li>
+            </ul>
+            
+            <!-- Conservamos tu lista oculta por si el JS la necesita para el historial antiguo -->
+            <ul id="history-list" style="display: none;"></ul>
         </div>
 
-        <div class="grid-layout">
-            <!-- Columna Historial/Checklist -->
-            <div class="checklist-card">
-                <h2>Buyer Information</h2>
-                <ul id="history-list">
-                    <!-- Se llena con JS -->
-                </ul>
-            </div>
-
-            <!-- Columna Especificaciones -->
-            <div class="specs-card">
-                <h2>Technical specifications</h2>
-                <table id="specs-table">
-                    <!-- Se llena con JS -->
-                </table>
-            </div>
+        <!-- Tarjeta: Especificaciones Técnicas -->
+        <div class="card-premium">
+            <h3><i class="fas fa-tools"></i> Technical Specifications</h3>
+            <table class="table-premium" id="specs-table">
+                <!-- Se llena con JS -->
+            </table>
         </div>
-        <button class="btn-download" id="btn-download-pdf">
+
+    </div>
+        <!-- Botones de Acción Rediseñados -->
+    <div class="report-actions-modern">
+        <button id="btn-download-pdf" class="btn-pdf-premium" onclick="window.print()">
             <i class="fas fa-file-pdf"></i> Download Report as PDF
         </button>
-        <button class="btn-back" onclick="location.reload()">New Search</button>
-    </main>
+        
+        <button id="btn-new-search" class="btn-new-search-premium" onclick="location.reload()">
+            <i class="fas fa-redo-alt"></i> New Search
+        </button>
+    </div>
+
+</main>
 
     <section class="about-plates-section" id="about-plates">
     <div class="container">
